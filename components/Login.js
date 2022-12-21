@@ -11,7 +11,6 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
     reset,
-    getValues,
   } = useForm();
 
   const onSubmit = async (data) => {

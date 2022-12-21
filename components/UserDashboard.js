@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useUser } from "../context/UserContext";
-import { set, useForm } from "react-hook-form";
-import { doc, setDoc } from "firebase/firestore";
+import { useForm } from "react-hook-form";
+import { deleteField, doc, setDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import TodoCard from "./TodoCard";
 import { useFetchTodos } from "../service/fetchTodos";
@@ -20,13 +20,14 @@ const UserDashboard = () => {
   const [edit, setEdit] = useState(false);
   const [editIndex, setEditIndex] = useState(null);
   const [editVal, setEditVal] = useState("");
+  const [deleteItem, setDelete] = useState(null);
   const handleClick = (e) => {
     setAddTodo(true);
   };
 
   const handleAddtask = async (data) => {
     const key =
-      Object.keys(todos).length === 0 ? 1 : Object.keys(todos).length + 1;
+      Object.keys(todos).length === 0 ? 1 : Math.max(...Object.keys(todos)) + 1;
     setTodos({ ...todos, [key]: data.todoItem });
     const userRef = doc(db, "users", currUser.uid);
     await setDoc(
@@ -61,9 +62,23 @@ const UserDashboard = () => {
     setEditVal("");
   };
 
-  const handleDelte = async () =>{
+  const handleDelte = async (todoKey) => {
+    const key = todoKey;
+    let tempTodo = { ...todos };
+    delete tempTodo[key];
+    setTodos(tempTodo);
 
-  }
+    const userRef = doc(db, "users", currUser.uid);
+    await setDoc(
+      userRef,
+      {
+        todos: {
+          [key]: deleteField(),
+        },
+      },
+      { merge: true }
+    );
+  };
 
   return (
     <>
@@ -106,11 +121,12 @@ const UserDashboard = () => {
                   setEdit={setEdit}
                   edit={edit}
                   setEditVal={setEditVal}
-                  index={i}
+                  index={todo}
                   setEditIndex={setEditIndex}
                   editIndex={editIndex}
                   edithandler={handleEdit}
                   editVal={editVal}
+                  handleDelete={handleDelte}
                 >
                   {todos[todo]}
                 </TodoCard>

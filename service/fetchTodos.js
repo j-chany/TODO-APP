@@ -18,6 +18,7 @@ export const useFetchTodos = () => {
         if (Object.keys(data.data()).length == 0) {
           setTodos({});
         } else {
+          console.log(todos);
           setTodos(data.data().todos);
         }
       }
@@ -29,7 +30,6 @@ export const useFetchTodos = () => {
   }
   useEffect(() => {
     getList();
-    setFetch(false);
   }, [addTodo]);
 
   return {

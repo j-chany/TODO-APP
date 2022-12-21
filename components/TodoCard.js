@@ -11,6 +11,7 @@ const TodoCard = (props) => {
     edithandler,
     editVal,
     setEditVal,
+    handleDelete,
   } = props;
 
   const handleClick = (e) => {
@@ -57,7 +58,8 @@ const TodoCard = (props) => {
           ></i>
           <i
             onClick={() => {
-              console.log("delete");
+              console.log(index);
+              handleDelete(index);
             }}
             className="fa-sharp fa-solid fa-trash px-2 duration-150 hover:scale-125 "
           ></i>

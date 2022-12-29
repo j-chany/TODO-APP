@@ -9,7 +9,6 @@ export const useFetchTodos = () => {
   const [loading, setLoading] = useState(true);
   const [todos, setTodos] = useState(null);
   const [addTodo, setAddTodo] = useState(true);
-  const [fetch, setFetch] = useState(false);
   async function getList() {
     try {
       const ref = doc(db, "users", currUser.uid);

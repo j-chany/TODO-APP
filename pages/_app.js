@@ -5,11 +5,10 @@ import "../styles/globals.css";
 function MyApp({ Component, pageProps }) {
   return (
     <UserProvider>
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </UserProvider>
-
   );
 }
 

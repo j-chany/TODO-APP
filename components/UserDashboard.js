@@ -20,7 +20,6 @@ const UserDashboard = () => {
   const [edit, setEdit] = useState(false);
   const [editIndex, setEditIndex] = useState(null);
   const [editVal, setEditVal] = useState("");
-  const [deleteItem, setDelete] = useState(null);
   const handleClick = (e) => {
     setAddTodo(true);
   };

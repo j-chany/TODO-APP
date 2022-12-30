@@ -9,15 +9,10 @@ const TodoCard = (props) => {
     setEditIndex,
     editIndex,
     edithandler,
-    editVal,
     setEditVal,
     handleDelete,
   } = props;
 
-  const handleClick = (e) => {
-    setEdit(true);
-    setEditIndex(index);
-  };
   return (
     <div className="p-2 sm:p-3 text-xl flex items-stretch border rounded-lg border-white border-solid ">
       <div className="flex-1 ">

@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useUser } from "../context/UserContext";
 
 const Login = () => {
-  const { login, userInfo, signup, currUser, checkIfdup } = useUser();
+  const { login, signup, checkIfdup } = useUser();
   const [error, setError] = useState(null);
   const [logging, setLoggingIn] = useState(true);
   const {

@@ -7,7 +7,7 @@ export const useFetchTodos = () => {
   const { currUser } = useUser();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
-  const [todos, setTodos] = useState(null);
+  const [todos, setTodos] = useState({});
   const [addTodo, setAddTodo] = useState(true);
   async function getList() {
     try {

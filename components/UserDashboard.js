@@ -23,7 +23,7 @@ const UserDashboard = () => {
   const handleClick = (e) => {
     setAddTodo(true);
   };
-
+  console.log(currUser);
   const handleAddtask = async (data) => {
     const key =
       Object.keys(todos).length === 0 ? 1 : Math.max(...Object.keys(todos)) + 1;

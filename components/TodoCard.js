@@ -21,7 +21,7 @@ const TodoCard = (props) => {
         ) : (
           <>
             <input
-              className="outline-none bg-inherit "
+              className="outline-none bg-inherit   "
               onChange={(e) => setEditVal(e.target.value)}
             ></input>
             <div className="flex items-stretch justify-between">

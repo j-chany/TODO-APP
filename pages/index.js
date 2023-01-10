@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import Login from "../components/Login";
 import { useUser } from "../context/UserContext";
 import UserDashboard

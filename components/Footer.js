@@ -6,7 +6,7 @@ export default function Footer() {
       <a href="https://www.instagram.com/im_jchany/">
         <i className="fa-brands fa-instagram duration:300 hover:opacity-30"></i>{" "}
       </a>
-      <a href="">
+      <a href="https://www.linkedin.com/in/james-bz-chan/">
         <i className="fa-brands fa-linkedin-in duration:300 hover:opacity-30"></i>
       </a>
       <a href="">
